@@ -16,7 +16,6 @@ print('primes', primes)
 print('not_primes', not_primes)
 
 
-# не понимаю, почему 9 и 15 в простых
 
 
 
