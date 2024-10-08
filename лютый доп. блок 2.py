@@ -1,7 +1,4 @@
-#def password(*args):
 print('Введите любое число от 3 до 20: ')
-#pin = {'x': []}
- #   pin = []
 x = int(input())
 key = []
 print('Ваш код: ')
@@ -16,16 +13,6 @@ for i in range(1,20):
                 continue
 print(int (x), (key))
 
-
-
-
-
-#for i in range(1, 21):
- #   if x % y == 0:
-  #      continue
-#x % (a + b) == 0
-#a != b
-# через имя? "х": у
 
 
 
