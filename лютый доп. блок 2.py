@@ -6,12 +6,13 @@ for i in range(1,20):
     if i == 1:
         is_prime = True
     for j in range(i,20):
-        if x % (i + j) == 0 and i != j:
-            key.append(j)
+        if x % (i + j) == 0 and i != j :
+            key.append(i)
             if is_prime:
-                key.append(i)
+                key.append(j)
                 continue
-print(int (x), (key))
+
+print(int (x),':', *(key))
 
 
 
