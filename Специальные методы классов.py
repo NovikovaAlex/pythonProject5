@@ -28,8 +28,6 @@ class House:
         return self.number_of_floor != other.number_of_floor
 
     def __add__(self, value):
-        new = House(self.x)
-        new.x = value.x
         self.number_of_floor += value
         return (f'Название: {self.name}, кол-во этажей: {self.number_of_floor }')
 
