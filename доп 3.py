@@ -1,5 +1,3 @@
-
-
 data_structure = [
      [1, 2, 3],
     {'a': 4, 'b': 5},
@@ -7,42 +5,25 @@ data_structure = [
      "Hello",
     ((), [{(2, 'Urban', ('Urban2', 35))}])
     ]
-print(type([1, 2, 3]))
-print(type({'a': 4, 'b': 5}))
-print(type((6, {'cube': 7, 'drum': 8})))
-print(type( 'Hello'))
-print(type(((), [{(2, 'Urban', ('Urban2', 35))}])))
-print(type(7))
 
-def stroka (i):
-    if isinstance(i, str):
-        return len (i)
-a = stroka('Hello')
-print(a)
 
-def spisok (i):
-    if len(i) == 0:
-        return i
-    if len(i) == 1:
-        return i[0]
-    return i[0] + spisok(i[1:])
-
-c = spisok([1, 2, 3])
-print(c)
-
-def slovar(i):
-    spis = []
-    spis_2 = []
-    for keys, values in i.items():
-        spis.append([keys,values])
-    for sublist in spis:
-        for items in sublist:
-            spis_2.append(items)
-    return ''.join(map(str, spis_2))
-    
+def calculate_structure_sum(*items):
+    summa = 0
+    for item in items:
+        if isinstance(item, (float,int)):
+            summa += item
+        elif isinstance(item, str):
+            summa += len(item)
+        elif isinstance(item, (list, tuple, set)):
+            summa += calculate_structure_sum(*item)
+        elif isinstance(item, dict):
+            for key in item.items():
+                summa += calculate_structure_sum(*item)
+            for value in item.items():
+                summa += calculate_structure_sum(*item)
+        return summa
 
 
 
-b = {'a': 4, 'b': 5}
-
-print(slovar(b))
+f = calculate_structure_sum(data_structure)
+print(f)
