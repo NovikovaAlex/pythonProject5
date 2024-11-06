@@ -10,20 +10,21 @@ data_structure = [
 def calculate_structure_sum(*items):
     summa = 0
     for item in items:
-        if isinstance(item, (float,int)):
+        if isinstance(item, float) or isinstance(item, int):
             summa += item
-        elif isinstance(item, str):
-            summa += len(item)
         elif isinstance(item, (list, tuple, set)):
             summa += calculate_structure_sum(*item)
+        elif isinstance(item, str):
+            summa += len(item)
+
         elif isinstance(item, dict):
-            for key in item.items():
-                summa += calculate_structure_sum(*item)
-            for value in item.items():
-                summa += calculate_structure_sum(*item)
-     return summa
+            for key, value in item.items():
+                summa += calculate_structure_sum(key,value)
+    return summa
 
 
 
-f = calculate_structure_sum(data_structure)
-print(f)
+result = calculate_structure_sum(data_structure)
+print(result)
+
+
