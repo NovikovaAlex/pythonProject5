@@ -21,7 +21,7 @@ def calculate_structure_sum(*items):
                 summa += calculate_structure_sum(*item)
             for value in item.items():
                 summa += calculate_structure_sum(*item)
-        return summa
+     return summa
 
 
 
