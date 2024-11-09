@@ -9,8 +9,9 @@ class Mammal(Animal):
     def eat(self, food):
         self.food = Plant
         print(f'{self.name} съел {food.name}')
-        self.alive = True
-        self.fed = True
+        if self.food == Plant:
+            self.alive = True
+            self.fed = True
 
 class Predator(Animal):
     def eat(self, food):
