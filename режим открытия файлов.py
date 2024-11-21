@@ -1,6 +1,4 @@
 from pprint import pprint
-from tkinter.font import names
-
 
 class Product:
     def __init__(self, name, weight, category):
@@ -16,21 +14,22 @@ class Shop:
         self.__file_name = 'products.txt'
 
     def get_products(self):
-        file = open('products.txt', 'r')
+        file = open(self.__file_name, 'r')
         pprint(file.read())
+        i_can_read = file.read()
         file.close()
-        return
+        return i_can_read
 
     def add(self, *products):
-        for products in 'products.txt':
-            if products.name not in 'products.txt':
-                file = open('products.txt', 'a')
-                file.write ('*products\n')
+
+        for i in products:
+            if i.name not in products:
+                file = open(self.__file_name, 'a')
+                file.write(f'{i} \n')
                 file.close()
+                print(self.get_products())
             else:
-                return f'Продукт { self.name} уже есть в магазине'
-
-
+                    print(f'Продукт {self.get_products()} уже есть в магазине')
 
 
 s1 = Shop()
