@@ -36,9 +36,7 @@ class UrTube:
         for user in self.users:
             if user.nickname == nickname and user.check_password(password):
                 self.current_user = user
-                print(f"{nickname} вошел в систему.")
                 return
-        print("Пользователь не найден или неверный пароль.")
 
     def register(self, nickname, password, age):
         for user in self.users:
@@ -93,4 +91,5 @@ ur.watch_video('Для чего девушкам парень программи
 ur.register('vasya_pupkin', 'F8098FM8fjm9jmi', 55)
 print(ur.current_user)
 ur.watch_video('Лучший язык программирования 2024 года!')
+
 
