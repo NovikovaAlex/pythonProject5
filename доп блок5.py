@@ -41,7 +41,7 @@ class UrTube:
     def register(self, nickname, password, age):
         for user in self.users:
             if user.nickname == nickname:
-                print(f"Пользователь {nickname} уже существует.")
+                print(f'Пользователь {nickname} уже существует.')
                 return
         new_user = User(nickname, password, age)
         self.users.append(new_user)
@@ -62,13 +62,13 @@ class UrTube:
 
     def watch_video(self, title):
         if not self.current_user:
-            print("Войдите в аккаунт, чтобы смотреть видео.")
+            print('Войдите в аккаунт, чтобы смотреть видео.')
             return
 
         for video in self.videos:
             if video.title == title:
                 if video.adult_mode and self.current_user.age < 18:
-                    print("Вам нет 18 лет, пожалуйста покиньте страницу.")
+                    print('Вам нет 18 лет, пожалуйста покиньте страницу.')
                     return
                 for i in range(1, 11):
                     time.sleep(1)
