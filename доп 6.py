@@ -11,11 +11,12 @@ class Figure:
 
         if len(sides) != self.sides_count:
             self.__sides = [1] * self.sides_count
+
         else:
             self.set_sides(*sides)
 
     def get_color(self):
-        return self.__color
+        return list(self.__color)
 
     def __is_valid_color(self, r, g, b):
         return 0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <= 255 and isinstance(r, int) and isinstance(g, int) and isinstance(b, int)
@@ -28,7 +29,7 @@ class Figure:
         if self.__sides % 2 == 0 and isinstance(self.__sides, int) and len(self.__sides) == self.sides_count:
             return True
         else:
-            self.__sides = 1
+
             return False
 
     def get_sides(self):
@@ -69,14 +70,14 @@ class Triangle(Figure):
 
 class Cube(Figure):
     sides_count = 12
-
-    def __init__(self, color, side_length):
-        super().__init__(color, side_length)
-        self.__sides = [side_length] * self.sides_count
-
+    def __init__(self, color,*sides):
+        sides = [sides[0]] * self.sides_count
+        super().__init__(color, *sides)
+        self.__sides = sides
 
     def get_volume(self):
-        v = self.__sides[0]**3
+        a = self.__sides[0]
+        v = a**3
         return v
 
 
@@ -93,6 +94,8 @@ circle1.set_sides(15)
 print(circle1.get_sides())
 print(len(circle1))
 print(cube1.get_volume())
+
+
 
 
 
