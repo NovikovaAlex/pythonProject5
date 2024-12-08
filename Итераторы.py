@@ -1,6 +1,3 @@
-
-
-
 class StepValueError(ValueError):
     pass
 class Iterator:
@@ -19,16 +16,16 @@ class Iterator:
     def __next__(self):
         if (self.step > 0 and self.pointer > self.stop) or (self.step < 0 and self.pointer < self.stop):
             raise StopIteration()
-        current = self.pointer
+        res = self.pointer
         self.pointer += self.step
-        return current
+        return res
+        
 try:
     iter1 = Iterator(100, 200, 0)
     for i in iter1:
         print(i, end=' ')
 except StepValueError:
     print('Шаг указан неверно')
-
 
 
 iter2 = Iterator(-5, 1)
