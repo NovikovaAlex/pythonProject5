@@ -25,19 +25,20 @@ hours = int(all_time // 3600)
 minutes = int((all_time % 3600) // 60)
 seconds = float(all_time % 60)
 print(f'Работа потоков {hours}:{minutes}:{seconds}')
+
 start2 = time.time()
-thread = threading.Thread(target= wite_words(10, 'example5.txt'))
-thread2 = threading.Thread(target= wite_words(30, 'example6.txt'))
-thread3 = threading.Thread(target= wite_words(200, 'example7.txt'))
-thread4 = threading.Thread(target= wite_words(100, 'example8.txt'))
-thread.start()
-thread.join()
-thread2.start()
-thread2.join()
-thread3.start()
-thread3.join()
-thread4.start()
-thread4.join()
+threads = []
+threads.append(threading.Thread(target= wite_words, args = (10, 'example5.txt')))
+threads.append(threading.Thread(target= wite_words, args = (30, 'example6.txt')))
+threads.append(threading.Thread(target= wite_words, args = (200, 'example7.txt')))
+threads.append(threading.Thread(target= wite_words, args = (100, 'example8.txt')))
+
+for thread in threads:
+    thread.start()
+
+for thread in threads:
+    thread.join()
+
 end2 = time.time()
 all_time2 = end2 - start2
 hours2 = int(all_time // 3600)
