@@ -18,6 +18,7 @@ class Bank:
                 print(f'Пополнение: {rand_numb}. Баланс: {self.balance}')
                 if self.balance >= 500 and self.lock.locked() :
                     self.lock.release()
+             time.sleep(0.001)
 
     def take(self):
             for i in range(100):
