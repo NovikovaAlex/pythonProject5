@@ -20,17 +20,17 @@ class Bank:
                 time.sleep(0.001)
 
     def take(self):
-            for i in range(100):
-                rand_numb = random.randint(50, 500)
-                print(f'Запрос на {rand_numb}' )
-                if self.balance <= rand_numb:
-                    print('Запрос отклонён, недостаточно средств')
-                    self.lock.acquire()
-                    time.sleep(0.001)
-                else:
-                    self.balance -= rand_numb
-                    print(f'Снятие: {rand_numb}. Баланс: {self.balance}')
-                    time.sleep(0.001)
+        for i in range(100):
+            rand_numb = random.randint(50, 500)
+            print(f'Запрос на {rand_numb}' )
+            if self.balance <= rand_numb:
+                print('Запрос отклонён, недостаточно средств')
+                self.lock.acquire()
+                time.sleep(0.001)
+            else:
+                self.balance -= rand_numb
+                print(f'Снятие: {rand_numb}. Баланс: {self.balance}')
+                time.sleep(0.001)
 
 
 
