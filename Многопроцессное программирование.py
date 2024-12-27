@@ -19,13 +19,13 @@ if __name__ == '__main__':
     for filename in filenames:
         data = read_info(filename)
     end_time = datetime.now()
-    linear_time = end_time - start_time
-    print(f"Линейное выполнение: {linear_time} секунд")
+    time1 = end_time - start_time
+    print(f"Линейное выполнение: {time1} секунд")
 
 
     start_time = datetime.now()
     with Pool() as pool:
         results = pool.map(read_info, filenames)
     end_time = datetime.now()
-    linear_time = end_time - start_time
-    print(f"Многопроцессное выполнение: {linear_time} секунд")
+    time2 = end_time - start_time
+    print(f"Многопроцессное выполнение: {time2} секунд")
